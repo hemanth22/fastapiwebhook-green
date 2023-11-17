@@ -1,0 +1,45 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: fastapiwebhook-green
+  namespace: bitroid-dev
+  uid: 69419264-b4e6-4338-967c-46e2a0600633
+  resourceVersion: '1525802295'
+  creationTimestamp: '2023-11-17T10:39:32Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2023-11-17T10:39:32Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":8000,"protocol":"TCP"}':
+              .: {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 172.30.15.242
+  ipFamilies:
+    - IPv4
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 172.30.15.242
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: fastapiwebhook-green
+status:
+  loadBalancer: {}

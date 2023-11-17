@@ -1,0 +1,62 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: fastapiwebhook-green
+  namespace: bitroid-dev
+  uid: 210cb36d-adfd-44ba-903a-c9a661f30c02
+  resourceVersion: '1525812482'
+  creationTimestamp: '2023-11-17T10:43:35Z'
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-11-17T10:43:35Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:path': {}
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:tls':
+            .: {}
+            'f:termination': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-11-17T10:43:35Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: fastapiwebhook-green-bitroid-dev.apps.sandbox-m3.1530.p1.openshiftapps.com
+  path: /
+  to:
+    kind: Service
+    name: fastapiwebhook-green
+    weight: 100
+  port:
+    targetPort: 8000
+  tls:
+    termination: edge
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: >-
+        fastapiwebhook-green-bitroid-dev.apps.sandbox-m3.1530.p1.openshiftapps.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2023-11-17T10:43:35Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps.sandbox-m3.1530.p1.openshiftapps.com
